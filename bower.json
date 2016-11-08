@@ -2,6 +2,11 @@
   "name": "offline",
   "dependencies": {
     "ember": "~2.8.0",
-    "ember-cli-shims": "0.1.1"
+    "ember-cli-shims": "0.1.1",
+    "pouchdb": "^5.4.5",
+    "relational-pouch": "^1.4.4",
+    "pouchdb-find": "^0.10.2",
+    "blob-util": "^1.2.1",
+    "components-font-awesome": "^4.7.0"
   }
 }

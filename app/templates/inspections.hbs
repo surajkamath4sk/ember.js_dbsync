@@ -1,0 +1,87 @@
+
+
+<nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Inspections</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+
+    </div><!-- /.container -->
+
+
+
+<div class="row">
+<center>
+   <div class="col-md-3">
+   <bold>
+     <h2>Disease search</h2>
+    </bold> 
+     <form {{action "createInspection" on="submit"}}>
+       <div class="form-group">
+         <label>Title</label>
+         {{input value=title class="form-control"}}
+       </div>
+       <div class="checkbox">
+         <label>
+           {{input type="checkbox" name="isCompleted" checked=isCompleted}}
+           Complete?
+         </label>
+       </div>
+       <input type="submit" value="Add Inspection" class="btn btn-primary">
+     </form>
+   </div>
+</center>   
+  <center>
+   <div class="col-md-9">
+     <h2>Diseases list</h2>
+     <table class="table">
+       <thead>
+         <tr>
+           <th>Names</th>
+          <SPACER TYPE=HORIZONTAL SIZE=50> <th>Code</th> </SPACER>
+           <SPACER TYPE=HORIZONTAL SIZE=50> <th>Titile</th>  </SPACER>
+           <SPACER TYPE=HORIZONTAL SIZE=50><th>Details </th></SPACER>
+         </tr>
+       </thead>
+
+       <tbody>
+         {{#each model as |inspection|}}
+           <tr>
+             <td>{{inspection.rev}}</td>
+             <td>{{inspection.title}}</td>
+             <td>
+               {{#if inspection.isCompleted}}
+                 &#x2713;
+               {{else}}
+                 &#x2717;
+               {{/if}}
+             </td>
+             <td {{action "deleteInspection" inspection on="click"}}>
+               x
+             </td>
+           </tr>
+         {{/each}}
+       </tbody>
+     </table>
+   </div>
+   </center>
+ </div> 
+
+
+{{outlet}}
